@@ -6,7 +6,7 @@ class MusicRecommendation:
     def __init__(self):
         cols = ['loudness', 'tempo', 'key', 'artist.name', 'artist.id', 'title', 'year', 'song.id',
                 'artist.hotttnesss', 'song.hotttnesss', 'artist_mbtags', 'terms']
-        self.music = pd.read_csv('datasets/music/music.csv', header=0, usecols=cols)
+        self.music = pd.read_csv('data/music/music.csv', header=0, usecols=cols)
         self.music.rename(columns={'artist.hotttnesss': 'artist.popularity',
                                    'song.hotttnesss': 'popularity',
                                    'artist_mbtags': 'artist.tags',
@@ -32,7 +32,7 @@ class MusicRecommendation:
                 self.music[column_name].max() - self.music[column_name].min())) * 100) - 1) // 20
 
     def get_songs_for_mood(self, mood, amount=10):
-        song_mood_corr = pd.read_csv('datasets/music/music_mood_classification.csv', index_col=0, header=0)
+        song_mood_corr = pd.read_csv('data/music/music_mood_classification.csv', index_col=0, header=0)
         loudness = song_mood_corr.loc[mood]['loudness']
         key = song_mood_corr.loc[mood]['key']
         tempo = song_mood_corr.loc[mood]['tempo']
