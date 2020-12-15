@@ -1,0 +1,9 @@
+mood,loudness,key,tempo
+happy,2,2,4
+exuberant,3,2,3
+energetic,4,2,3
+frantic,3,4,4
+anxious/sad,2,0,1
+depression,1,1,1
+calm,0,0,0
+contentment,1,1,1
