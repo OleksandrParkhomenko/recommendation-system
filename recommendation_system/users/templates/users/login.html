@@ -1,0 +1,18 @@
+{% extends 'recommender/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="mx-auto">
+        <form method="POST" class="">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="form-group">
+                <label> {{ field.label }} </label>
+                {{ field }}
+            </div>
+            {% endfor %}
+            <button class="btn btn-info" type="submit">Login</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

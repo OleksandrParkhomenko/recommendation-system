@@ -11,9 +11,9 @@ class MovieRecommendation:
 
     def __read_data(self):
         r_cols = ['userId', 'movieId', 'rating']
-        self.ratings = pd.read_csv('data/movies/ratings.csv', usecols=r_cols, header=0)
+        self.ratings = pd.read_csv('../../../data/movies/ratings.csv', usecols=r_cols, header=0)
         m_cols = ['movieId', 'title', 'genres']
-        self.movies = pd.read_csv('data/movies/movies.csv', usecols=m_cols, header=0)
+        self.movies = pd.read_csv('../../../data/movies/movies.csv', usecols=m_cols, header=0)
         l_cols = ['movieId', 'imdbId']
 
     def __preprocess_data(self):
