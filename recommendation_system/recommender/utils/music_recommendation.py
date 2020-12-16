@@ -1,3 +1,5 @@
+import os
+
 import pandas as pd
 
 
@@ -6,7 +8,8 @@ class MusicRecommendation:
     def __init__(self):
         cols = ['loudness', 'tempo', 'key', 'artist.name', 'artist.id', 'title', 'year', 'song.id',
                 'artist.hotttnesss', 'song.hotttnesss', 'artist_mbtags', 'terms']
-        self.music = pd.read_csv('../../../data/music/music.csv', header=0, usecols=cols)
+        dir = os.getcwd()
+        self.music = pd.read_csv(dir + "/data/music/music.csv", header=0, usecols=cols)
         self.music.rename(columns={'artist.hotttnesss': 'artist.popularity',
                                    'song.hotttnesss': 'popularity',
                                    'artist_mbtags': 'artist.tags',
@@ -14,7 +17,6 @@ class MusicRecommendation:
                           inplace=True)
         self.__normalize_music_data()
         self.__merge_tags()
-        print(self.music[['tags']].sample(10))
 
     def __merge_tags(self):
         self.music['artist.tags'] = self.music['artist.tags'].fillna("")
@@ -32,7 +34,8 @@ class MusicRecommendation:
                 self.music[column_name].max() - self.music[column_name].min())) * 100) - 1) // 20
 
     def get_songs_for_mood(self, mood, amount=10):
-        song_mood_corr = pd.read_csv('../../../data/music/music_mood_classification.csv', index_col=0, header=0)
+        dir = os.getcwd()
+        song_mood_corr = pd.read_csv(dir + '/data/music/music_mood_classification.csv', index_col=0, header=0)
         loudness = song_mood_corr.loc[mood]['loudness']
         key = song_mood_corr.loc[mood]['key']
         tempo = song_mood_corr.loc[mood]['tempo']

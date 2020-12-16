@@ -1,0 +1,19 @@
+{% extends 'recommender/base.html' %}
+{% block content %}
+  <table class="table table-striped table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Artist</th>
+      <th scope="col">Title</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for artist, title in music_recommendation.items %}
+    <tr>
+        <th> {{ artist }} </th>
+        <th> {{ title }} </th>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
