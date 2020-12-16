@@ -1,0 +1,17 @@
+asgiref==3.3.1
+click==7.1.2
+Django==3.1.3
+joblib==1.0.0
+lxml==4.6.2
+nltk==3.5
+numpy==1.19.4
+pandas==1.1.5
+Pillow==8.0.1
+python-dateutil==2.8.1
+pytz==2020.4
+regex==2020.11.13
+six==1.15.0
+SQLAlchemy==1.3.20
+sqlparse==0.4.1
+textblob==0.15.3
+tqdm==4.54.1
